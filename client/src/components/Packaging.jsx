@@ -34,13 +34,20 @@ const Packaging = () => {
           </div>
 
           <div className="lg:w-1/2 relative z-10">
-            <div className="relative aspect-square max-w-md mx-auto">
+            <div className="relative aspect-square max-w-md mx-auto group">
               <div className="absolute inset-0 bg-gradient-to-tr from-[#A7D7A8]/30 to-transparent rounded-full blur-3xl mix-blend-multiply"></div>
               <img 
-                src="/images/blueberry-250g.png" 
+                src="/images/blueberry-250g-nolabel.png" 
                 alt="Junior's Farm Packaging" 
-                className="relative z-10 w-full h-full object-contain filter drop-shadow-2xl"
+                className="relative z-10 w-full h-full object-contain filter drop-shadow-2xl transition-transform duration-700 hover:-translate-y-2"
               />
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 transition-transform duration-700 group-hover:-translate-y-2">
+                <img 
+                  src="/WhatsApp_Image_2026-03-28_at_6.25.43_PM-removebg-preview.png" 
+                  alt="Junior's Farm Logo" 
+                  className="w-40 h-40 object-contain drop-shadow-lg opacity-95"
+                />
+              </div>
             </div>
           </div>
           

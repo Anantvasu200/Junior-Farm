@@ -1,4 +1,4 @@
-const ProductCard = ({ product, onOrder }) => {
+const ProductCard = ({ product }) => {
   return (
     <div className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 group border border-gray-100 flex flex-col h-full hover:-translate-y-2">
       
@@ -25,6 +25,15 @@ const ProductCard = ({ product, onOrder }) => {
           alt={product.name} 
           className="w-full h-full object-contain mix-blend-multiply transition-transform duration-700 group-hover:scale-110"
         />
+        
+        {/* Junior's Farm Logo overlay on the Box */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 transition-transform duration-700 group-hover:scale-110">
+          <img 
+            src="/WhatsApp_Image_2026-03-28_at_6.25.43_PM-removebg-preview.png" 
+            alt="Junior's Farm Logo" 
+            className={`object-contain drop-shadow-md opacity-90 ${product.logoClasses || 'w-24 h-24'}`}
+          />
+        </div>
       </div>
 
       {/* Product Info */}
@@ -36,7 +45,7 @@ const ProductCard = ({ product, onOrder }) => {
               {product.weight}
             </span>
           </div>
-          <p className="text-2xl font-bold tracking-tight text-[#1F3D2B]">₹{product.price}</p>
+          <p className="text-2xl font-bold tracking-tight text-[#1F3D2B]">{product.price}/-</p>
         </div>
 
         <p className="text-gray-600 text-sm mb-6 mt-4 flex-grow line-clamp-2 leading-relaxed">
@@ -54,17 +63,6 @@ const ProductCard = ({ product, onOrder }) => {
           ))}
         </ul>
 
-        <button 
-          onClick={() => onOrder(product)}
-          disabled={!product.inStock}
-          className={`w-full py-3.5 rounded-xl font-bold shadow-sm transition-all text-sm tracking-wide ${
-            product.inStock 
-              ? 'bg-[#1F3D2B] text-white hover:bg-[#A7D7A8] hover:text-[#1F3D2B] hover:shadow-md active:scale-95' 
-              : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-          }`}
-        >
-          {product.inStock ? 'Order Now' : 'Currently Unavailable'}
-        </button>
       </div>
     </div>
   );

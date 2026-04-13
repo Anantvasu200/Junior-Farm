@@ -50,16 +50,6 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <a 
-              href="#products"
-              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-sm ${
-                scrolled 
-                  ? 'bg-[#1F3D2B] text-white hover:bg-[#2a523a]' 
-                  : 'bg-white text-[#1F3D2B] hover:bg-[#A7D7A8]'
-              }`}
-            >
-              Order Now
-            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -87,13 +77,6 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
-          <a 
-            href="#products"
-            onClick={() => setIsOpen(false)}
-            className="w-full text-center bg-[#1F3D2B] text-white py-3 rounded-full font-semibold"
-          >
-            Order Now
-          </a>
         </div>
       )}
     </nav>

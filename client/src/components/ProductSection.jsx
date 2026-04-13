@@ -6,24 +6,26 @@ const mockProducts = [
   {
     id: '1',
     name: 'Fresh Premium Blueberries',
-    weight: '125g Pack',
-    description: 'Perfect for snacking, adding to yogurt, or baking. Our 125g punnet is packed with juicy, antioxidant-rich berries.',
+    weight: '125gm.',
+    description: 'Perfect for snacking, adding to yogurt, or baking. Our 125gm punnet is packed with juicy, antioxidant-rich berries.',
     highlights: ['Premium hand-picked', 'Hygienically packed', 'Zero chemical wash'],
-    image: '/images/blueberry-125g.png',
-    price: 199,
+    image: '/images/blueberry-125g-nolabel.png',
+    price: 239,
     inStock: true,
     harvestedThisWeek: true,
+    logoClasses: 'w-28 h-28 translate-y-8'
   },
   {
     id: '2',
     name: 'Gourmet Blueberries',
-    weight: '250g Pack',
+    weight: '250gm.',
     description: 'The family pack. Freshly plucked berries that provide a natural immunity boost for your entire household.',
     highlights: ['Rich in antioxidants', 'Farm fresh guaranteed', 'Ideal for meal prep'],
-    image: '/images/blueberry-250g.png',
-    price: 349,
+    image: '/images/blueberry-250g-nolabel.png',
+    price: 459,
     inStock: true,
     harvestedThisWeek: true,
+    logoClasses: 'w-32 h-32'
   }
 ];
 
@@ -39,7 +41,7 @@ const SkeletonCard = () => (
   </div>
 );
 
-const ProductSection = ({ onOrder }) => {
+const ProductSection = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -82,7 +84,6 @@ const ProductSection = ({ onOrder }) => {
               <ProductCard 
                 key={product.id} 
                 product={product} 
-                onOrder={onOrder}
               />
             ))
           )}
