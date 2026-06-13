@@ -1,4 +1,4 @@
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onOrderNow }) => {
   return (
     <div className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 group border border-gray-100 flex flex-col h-full hover:-translate-y-2">
       
@@ -62,6 +62,18 @@ const ProductCard = ({ product }) => {
             </li>
           ))}
         </ul>
+
+        <button 
+          onClick={() => onOrderNow && onOrderNow(product)}
+          disabled={!product.inStock}
+          className={`w-full py-3.5 px-4 rounded-2xl font-bold text-base transition-all duration-300 mt-auto ${
+            product.inStock 
+              ? 'bg-[#1F3D2B] text-white hover:bg-[#A7D7A8] hover:text-[#1F3D2B] shadow-md hover:shadow-lg cursor-pointer' 
+              : 'bg-gray-100 text-gray-400 cursor-not-allowed'
+          }`}
+        >
+          {product.inStock ? 'Order Now' : 'Out of Stock'}
+        </button>
 
       </div>
     </div>

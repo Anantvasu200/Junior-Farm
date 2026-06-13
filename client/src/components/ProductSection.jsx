@@ -41,7 +41,7 @@ const SkeletonCard = () => (
   </div>
 );
 
-const ProductSection = () => {
+const ProductSection = ({ onOrderNow }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -69,7 +69,7 @@ const ProductSection = () => {
             </h2>
           </div>
           <p className="text-gray-500 mt-6 md:mt-0 font-medium border-l-2 border-[#A7D7A8] pl-4">
-            Grown with love, harvested with care. <br/>Limited daily stock available.
+             Grown with love, harvested with care. <br/>Limited daily stock available.
           </p>
         </div>
 
@@ -84,6 +84,7 @@ const ProductSection = () => {
               <ProductCard 
                 key={product.id} 
                 product={product} 
+                onOrderNow={onOrderNow}
               />
             ))
           )}
