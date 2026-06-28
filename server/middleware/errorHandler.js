@@ -17,9 +17,9 @@ const errorHandler = (err, req, res, next) => {
     return res.status(400).json({ error: 'Duplicate Key Error', details: 'A resource with this key already exists.' });
   }
 
-  // Stripe errors
-  if (err.type && err.type.startsWith('Stripe')) {
-    return res.status(err.statusCode || 400).json({ error: 'Payment Gateway Error', details: err.message });
+  // Razorpay API errors
+  if (err.error && err.error.description) {
+    return res.status(err.statusCode || 400).json({ error: 'Payment Gateway Error', details: err.error.description });
   }
 
   // General server error fallback

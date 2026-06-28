@@ -16,6 +16,11 @@ export const createOrder = async (req, res) => {
     return res.status(400).json({ error: 'Order ID and amount are required.' });
   }
 
+  const amountInPaise = Math.round(amount * 100);
+  if (amountInPaise < 100) {
+    return res.status(400).json({ error: 'Minimum payable amount is ₹1 (100 paise).' });
+  }
+
   // Find order in database by either custom orderId or database _id
   const order = await Order.findOne({
     $or: [
@@ -30,7 +35,7 @@ export const createOrder = async (req, res) => {
 
   // Create Razorpay order option
   const options = {
-    amount: Math.round(amount * 100), // amount in paise (e.g. ₹239 = 23900 paise)
+    amount: amountInPaise, // amount in paise (e.g. ₹239 = 23900 paise)
     currency: 'INR',
     receipt: order.orderId,
     notes: { 

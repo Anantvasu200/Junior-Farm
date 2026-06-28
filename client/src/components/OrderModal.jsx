@@ -224,6 +224,11 @@ const OrderModal = ({ isOpen, onClose, product, initialStep = 1, initialOrderId 
       // 4. Open Razorpay iframe popup
       if (window.Razorpay) {
         const rzp = new window.Razorpay(options);
+        rzp.on('payment.failed', (response) => {
+          console.error('Razorpay payment failed:', response.error);
+          toast.error(response.error.description || 'Payment failed. Please try again.');
+          setIsProcessing(false);
+        });
         rzp.open();
       } else {
         throw new Error('Razorpay SDK failed to load. Please refresh the page.');

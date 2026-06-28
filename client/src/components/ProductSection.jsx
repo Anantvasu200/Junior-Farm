@@ -10,7 +10,7 @@ const mockProducts = [
     description: 'Perfect for snacking, adding to yogurt, or baking. Our 125gm punnet is packed with juicy, antioxidant-rich berries.',
     highlights: ['Premium hand-picked', 'Hygienically packed', 'Zero chemical wash'],
     image: '/images/blueberry-125g-nolabel.png',
-    price: 239,
+    price: 220,
     inStock: true,
     harvestedThisWeek: true,
     logoClasses: 'w-28 h-28 translate-y-8'
@@ -22,7 +22,7 @@ const mockProducts = [
     description: 'The family pack. Freshly plucked berries that provide a natural immunity boost for your entire household.',
     highlights: ['Rich in antioxidants', 'Farm fresh guaranteed', 'Ideal for meal prep'],
     image: '/images/blueberry-250g-nolabel.png',
-    price: 459,
+    price: 420,
     inStock: true,
     harvestedThisWeek: true,
     logoClasses: 'w-32 h-32'
